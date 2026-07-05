@@ -2,6 +2,12 @@
 
 Una implementación ultra-minimalista, fluida y altamente integrada de la **Isla Dinámica (Dynamic Island)** para dispositivos Android. Inspirada en la estética limpia de **Apple** y **Nothing OS**.
 
+## 📸 Showcase
+
+| Música Expandida (Spotify) | Música Expandida (Home) | Música Colapsada (Visualizador) | Llamada Entrante |
+| :---: | :---: | :---: | :---: |
+| <img src="images/spotify_expanded.png" width="200"> | <img src="images/music_expanded.png" width="200"> | <img src="images/music_collapsed.png" width="200"> | <img src="images/incoming_call.png" width="200"> |
+
 ---
 
 ## ✨ Características Premium
