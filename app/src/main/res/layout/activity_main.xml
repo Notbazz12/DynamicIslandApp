@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/bg_main" android:fillViewport="true">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="24dp">
+
+        <!-- Header minimalista -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginTop="28dp" android:text="Dynamic Island"
+            android:textColor="@color/text_primary" android:textSize="30sp" android:fontFamily="sans-serif-condensed-light" android:textStyle="bold"/>
+        
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginTop="2dp" android:text="Centro de control iOS minimalista"
+            android:textColor="@color/text_secondary" android:textSize="13sp"/>
+
+        <!-- Hint Card -->
+        <TextView android:id="@+id/tv_permission_hint" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginTop="24dp"
+            android:background="@drawable/bg_hint_card" android:padding="16dp"
+            android:textColor="@color/text_secondary" android:textSize="12sp" android:fontFamily="sans-serif"/>
+
+        <!-- CARD 1: PERMISOS -->
+        <com.google.android.material.card.MaterialCardView android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginTop="20dp"
+            app:cardBackgroundColor="@color/surface_card" app:cardCornerRadius="16dp"
+            app:cardElevation="0dp" app:strokeColor="@color/stroke_card" app:strokeWidth="1dp">
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="20dp">
+                
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Permisos del sistema" android:textColor="@color/text_primary"
+                    android:textSize="15sp" android:fontFamily="sans-serif-medium"/>
+
+                <!-- Overlay Permission -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp" android:gravity="center_vertical" android:orientation="horizontal">
+                    <TextView android:id="@+id/tv_overlay_status" android:layout_width="0dp"
+                        android:layout_height="wrap_content" android:layout_weight="1"
+                        android:textColor="@color/text_secondary" android:textSize="13sp"/>
+                    <com.google.android.material.button.MaterialButton android:id="@+id/btn_overlay_permission"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Conceder" android:textSize="12sp" android:textColor="@color/island_accent"/>
+                </LinearLayout>
+
+                <!-- Notification Permission -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp" android:gravity="center_vertical" android:orientation="horizontal">
+                    <TextView android:id="@+id/tv_notification_status" android:layout_width="0dp"
+                        android:layout_height="wrap_content" android:layout_weight="1"
+                        android:textColor="@color/text_secondary" android:textSize="13sp"/>
+                    <com.google.android.material.button.MaterialButton android:id="@+id/btn_notification_permission"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Conceder" android:textSize="12sp" android:textColor="@color/island_accent"/>
+                </LinearLayout>
+
+                <!-- Usage Stats Permission -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp" android:gravity="center_vertical" android:orientation="horizontal">
+                    <TextView android:id="@+id/tv_accessibility_status" android:layout_width="0dp"
+                        android:layout_height="wrap_content" android:layout_weight="1"
+                        android:textColor="@color/text_secondary" android:textSize="13sp"/>
+                    <com.google.android.material.button.MaterialButton android:id="@+id/btn_accessibility_permission"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Activar" android:textSize="12sp" android:textColor="@color/island_accent"/>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- CARD 2: CONTROL DE SERVICIO -->
+        <com.google.android.material.card.MaterialCardView android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginTop="16dp"
+            app:cardBackgroundColor="@color/surface_card" app:cardCornerRadius="16dp"
+            app:cardElevation="0dp" app:strokeColor="@color/stroke_card" app:strokeWidth="1dp">
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="20dp">
+                
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Servicio" android:textColor="@color/text_primary"
+                    android:textSize="15sp" android:fontFamily="sans-serif-medium"/>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp" android:orientation="horizontal">
+                    
+                    <com.google.android.material.button.MaterialButton android:id="@+id/btn_start_island"
+                        android:layout_width="0dp" android:layout_height="50dp"
+                        android:layout_weight="1" android:layout_marginEnd="6dp"
+                        android:text="Iniciar" android:textSize="14sp"
+                        app:backgroundTint="@color/island_accent" app:cornerRadius="12dp"/>
+
+                    <com.google.android.material.button.MaterialButton android:id="@+id/btn_stop_island"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="0dp" android:layout_height="50dp"
+                        android:layout_weight="1" android:layout_marginStart="6dp"
+                        android:text="Detener" android:textSize="14sp"
+                        android:textColor="@color/text_primary" app:strokeColor="@color/stroke_card"
+                        app:cornerRadius="12dp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- CARD 3: OPCIONES Y SWITCHES -->
+        <com.google.android.material.card.MaterialCardView android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginTop="16dp"
+            app:cardBackgroundColor="@color/surface_card" app:cardCornerRadius="16dp"
+            app:cardElevation="0dp" app:strokeColor="@color/stroke_card" app:strokeWidth="1dp">
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="20dp">
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Preferencias" android:textColor="@color/text_primary"
+                    android:textSize="15sp" android:fontFamily="sans-serif-medium"/>
+
+                <!-- Siempre activa -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp" android:gravity="center_vertical" android:orientation="horizontal">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Siempre activa" android:textColor="@color/text_primary" android:textSize="14sp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Auto-iniciar al encender el móvil"
+                            android:textColor="@color/text_secondary" android:textSize="11sp" android:layout_marginTop="1dp"/>
+                    </LinearLayout>
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switch_always_on"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        app:thumbTint="@color/text_primary" app:trackTint="@color/stroke_card"/>
+                </LinearLayout>
+
+                <!-- Modo Gaming -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp" android:gravity="center_vertical" android:orientation="horizontal">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Modo Gaming" android:textColor="@color/text_primary" android:textSize="14sp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Isla ultra-pequeña (punto) para jugar"
+                            android:textColor="@color/text_secondary" android:textSize="11sp" android:layout_marginTop="1dp"/>
+                    </LinearLayout>
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switch_gaming_mode"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        app:thumbTint="@color/text_primary" app:trackTint="@color/stroke_card"/>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- CARD 4: PROBAR ESTADOS (DEMO) -->
+        <com.google.android.material.card.MaterialCardView android:id="@+id/card_demo_controls"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" android:layout_marginBottom="32dp"
+            android:visibility="gone" app:cardBackgroundColor="@color/surface_card"
+            app:cardCornerRadius="16dp" app:cardElevation="0dp"
+            app:strokeColor="@color/stroke_card" app:strokeWidth="1dp">
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="20dp">
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Simulación" android:textColor="@color/text_primary"
+                    android:textSize="15sp" android:fontFamily="sans-serif-medium"/>
+
+                <GridLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp" android:columnCount="2" android:rowCount="3">
+
+                    <com.google.android.material.button.MaterialButton android:id="@+id/btn_demo_call"
+                        android:layout_width="0dp" android:layout_height="48dp"
+                        android:layout_columnWeight="1" android:layout_margin="4dp"
+                        android:text="Llamada" android:textSize="12sp"
+                        app:backgroundTint="@color/call_answer" app:cornerRadius="10dp"/>
+
+                    <com.google.android.material.button.MaterialButton android:id="@+id/btn_demo_music"
+                        android:layout_width="0dp" android:layout_height="48dp"
+                        android:layout_columnWeight="1" android:layout_margin="4dp"
+                        android:text="Música" android:textSize="12sp"
+                        app:backgroundTint="@color/music_color" app:cornerRadius="10dp"/>
+
+                    <com.google.android.material.button.MaterialButton android:id="@+id/btn_demo_notification"
+                        android:layout_width="0dp" android:layout_height="48dp"
+                        android:layout_columnWeight="1" android:layout_margin="4dp"
+                        android:text="Notificación" android:textSize="12sp"
+                        app:backgroundTint="@color/island_accent" app:cornerRadius="10dp"/>
+
+                    <com.google.android.material.button.MaterialButton android:id="@+id/btn_demo_timer"
+                        android:layout_width="0dp" android:layout_height="48dp"
+                        android:layout_columnWeight="1" android:layout_margin="4dp"
+                        android:text="Temporizador" android:textSize="12sp"
+                        app:backgroundTint="@color/timer_color" app:cornerRadius="10dp"/>
+
+                    <com.google.android.material.button.MaterialButton android:id="@+id/btn_demo_clear"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="match_parent" android:layout_height="48dp"
+                        android:layout_columnSpan="2" android:layout_margin="4dp"
+                        android:text="Limpiar isla" android:textSize="12sp"
+                        android:textColor="@color/text_secondary" app:strokeColor="@color/stroke_card"
+                        app:cornerRadius="10dp"/>
+                </GridLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+</ScrollView>

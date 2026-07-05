@@ -1,0 +1,4 @@
+-keep class com.example.dynamicisland.service.** { *; }
+-keep class com.example.dynamicisland.state.** { *; }
+-keep class com.example.dynamicisland.receiver.** { *; }
+-keepattributes *Annotation*

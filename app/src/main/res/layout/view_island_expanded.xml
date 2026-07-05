@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="horizontal" android:gravity="center_vertical"
+    android:paddingStart="16dp" android:paddingEnd="16dp"
+    android:paddingTop="12dp" android:paddingBottom="12dp">
+
+    <!-- Columna 1: Album Art / Icono grande -->
+    <ImageView android:id="@+id/iv_expanded_icon"
+        android:layout_width="64dp" android:layout_height="64dp"
+        android:src="@drawable/ic_notification" android:scaleType="centerCrop"
+        android:background="@drawable/bg_icon_rounded" android:clipToOutline="true"
+        android:layout_gravity="center_vertical"/>
+
+    <!-- Columna 2: Info, Barra de progreso y Controles -->
+    <LinearLayout
+        android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1" android:layout_marginStart="14dp"
+        android:orientation="vertical" android:layout_gravity="center_vertical">
+
+        <!-- Fila Superior: Info Principal y Mini Visualizador (opcional) -->
+        <RelativeLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:layout_toStartOf="@+id/iv_expanded_visualizer">
+                <TextView android:id="@+id/tv_expanded_title"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:textColor="#FFFFFF" android:textSize="15sp"
+                    android:fontFamily="sans-serif-medium" android:singleLine="true" android:ellipsize="end"/>
+                <TextView android:id="@+id/tv_expanded_subtitle"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:textColor="#8E8E93" android:textSize="12sp"
+                    android:layout_marginTop="1dp" android:singleLine="true" android:ellipsize="end"/>
+                <TextView android:id="@+id/tv_expanded_extra"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:textColor="#8E8E93" android:textSize="11sp"
+                    android:layout_marginTop="1dp" android:visibility="gone" android:singleLine="true" android:ellipsize="end"/>
+            </LinearLayout>
+            <!-- Pequeño visualizador animado a la derecha -->
+            <com.example.dynamicisland.ui.WaveformVisualizerView
+                android:id="@+id/iv_expanded_visualizer"
+                android:layout_width="14dp" android:layout_height="10dp"
+                android:layout_alignParentEnd="true" android:layout_centerVertical="true"
+                android:visibility="gone"/>
+        </RelativeLayout>
+
+        <!-- Barra de Progreso de Musica (delgada, estilo iOS) -->
+        <ProgressBar android:id="@+id/pb_music_progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent" android:layout_height="3dp"
+            android:layout_marginTop="8dp" android:layout_marginBottom="8dp"
+            android:progress="35" android:visibility="gone"
+            android:progressDrawable="@drawable/music_progress_bar"/>
+
+        <!-- Fila de Controles de Musica: Prev | Play/Pause | Next -->
+        <LinearLayout android:id="@+id/ll_music_controls"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center"
+            android:visibility="gone">
+
+            <ImageView android:id="@+id/btn_action_prev"
+                android:layout_width="32dp" android:layout_height="32dp"
+                android:padding="6dp" android:src="@drawable/ic_skip_prev"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:clickable="true" android:focusable="true"/>
+
+            <ImageView android:id="@+id/btn_action1"
+                android:layout_width="36dp" android:layout_height="36dp"
+                android:padding="6dp" android:src="@drawable/ic_pause"
+                android:layout_marginStart="24dp" android:layout_marginEnd="24dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:clickable="true" android:focusable="true"/>
+
+            <ImageView android:id="@+id/btn_action2"
+                android:layout_width="32dp" android:layout_height="32dp"
+                android:padding="6dp" android:src="@drawable/ic_skip_next"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:clickable="true" android:focusable="true"/>
+        </LinearLayout>
+
+        <!-- Fila de Controles de Llamada (Acciones genericas del sistema) -->
+        <LinearLayout android:id="@+id/ll_call_controls"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="end"
+            android:visibility="gone">
+
+            <FrameLayout android:id="@+id/btn_call_action1"
+                android:layout_width="36dp" android:layout_height="36dp"
+                android:layout_marginEnd="10dp" android:background="@drawable/bg_action_btn"
+                android:clickable="true" android:focusable="true">
+                <ImageView android:id="@+id/iv_call_icon1"
+                    android:layout_width="16dp" android:layout_height="16dp"
+                    android:layout_gravity="center" android:src="@drawable/ic_close"/>
+            </FrameLayout>
+
+            <FrameLayout android:id="@+id/btn_call_action2"
+                android:layout_width="36dp" android:layout_height="36dp"
+                android:background="@drawable/bg_action_btn"
+                android:clickable="true" android:focusable="true">
+                <ImageView android:id="@+id/iv_call_icon2"
+                    android:layout_width="16dp" android:layout_height="16dp"
+                    android:layout_gravity="center" android:src="@drawable/ic_open_app"/>
+            </FrameLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

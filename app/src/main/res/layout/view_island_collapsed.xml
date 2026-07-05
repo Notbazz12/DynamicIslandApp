@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="horizontal" android:gravity="center_vertical"
+    android:paddingStart="12dp" android:paddingEnd="12dp">
+
+    <!-- Album art circular (visible cuando hay portada) -->
+    <ImageView android:id="@+id/iv_album_art_small"
+        android:layout_width="22dp" android:layout_height="22dp"
+        android:scaleType="centerCrop" android:visibility="gone"
+        android:background="@drawable/bg_album_art_circle"
+        android:clipToOutline="true"/>
+
+    <!-- Icono generico (visible cuando NO hay portada) -->
+    <ImageView android:id="@+id/iv_leading_icon"
+        android:layout_width="16dp" android:layout_height="16dp"
+        android:src="@drawable/ic_notification" android:scaleType="centerInside"/>
+
+    <TextView android:id="@+id/tv_leading_text"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_marginStart="6dp" android:textColor="#FFFFFF"
+        android:textSize="12sp" android:maxLines="1" android:visibility="gone"/>
+
+    <View android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1"/>
+
+    <!-- Waveform Visualizer (derecha) -->
+    <com.example.dynamicisland.ui.WaveformVisualizerView
+        android:id="@+id/waveform_visualizer"
+        android:layout_width="14dp"
+        android:layout_height="10dp"
+        android:layout_marginEnd="2dp"
+        android:visibility="gone"/>
+
+    <ImageView android:id="@+id/iv_trailing_icon"
+        android:layout_width="16dp" android:layout_height="16dp"
+        android:src="@drawable/ic_music" android:scaleType="centerInside" android:visibility="gone"/>
+
+    <TextView android:id="@+id/tv_trailing_text"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:textColor="#FFFFFF" android:textSize="12sp"
+        android:maxLines="1" android:fontFamily="sans-serif-medium"/>
+</LinearLayout>

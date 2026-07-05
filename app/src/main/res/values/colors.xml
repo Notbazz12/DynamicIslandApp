@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_main">#08080A</color>
+    <color name="surface_card">#121217</color>
+    <color name="stroke_card">#1E1E26</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#94A3B8</color>
+    <color name="text_tertiary">#475569</color>
+    <color name="island_accent">#3B82F6</color> <!-- Premium Blue -->
+    <color name="island_action_bg">#22FFFFFF</color>
+    <color name="call_answer">#10B981</color> <!-- Emerald Green -->
+    <color name="call_decline">#EF4444</color> <!-- Rose Red -->
+    <color name="music_color">#EC4899</color> <!-- Pink -->
+    <color name="timer_color">#F59E0B</color> <!-- Amber -->
+    <color name="icon_tint">#FFFFFFFF</color>
+</resources>

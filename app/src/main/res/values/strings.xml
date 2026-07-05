@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Dynamic Island</string>
+    <string name="notification_listener_label">Dynamic Island â€“ Acceso a Notificaciones</string>
+    <string name="accessibility_service_label">Dynamic Island - Modo Social</string>
+    <string name="accessibility_service_description">Detecta cuando usas redes sociales para hacer la isla más pequeña y no estorbar</string>
+</resources>
