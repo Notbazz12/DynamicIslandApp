@@ -369,46 +369,43 @@ class IslandOverlayView @JvmOverloads constructor(
         if (!miniMode) expandWithAutoCollapse(3_000L)
     }
 
-    private fun getDominantColor(bitmap: android.graphics.Bitmap?): Int {
-        bitmap ?: return Color.BLACK
-        var redBucket = 0
-        var greenBucket = 0
-        var blueBucket = 0
-        var sampleCount = 0
+    private fun getVibrantDominantColor(bitmap: android.graphics.Bitmap?): Int {
+        bitmap ?: return 0xFF3B82F6.toInt() // Fallback Blue
+        
+        var bestColor = 0xFF3B82F6.toInt()
+        var maxVibrancy = -1f
         
         val w = bitmap.width
         val h = bitmap.height
-        for (x in 0 until w step (w / 6).coerceAtLeast(1)) {
-            for (y in 0 until h step (h / 6).coerceAtLeast(1)) {
+        
+        // Muestrear una rejilla de píxeles para encontrar el color más saturado/vibrante
+        for (x in 0 until w step (w / 10).coerceAtLeast(1)) {
+            for (y in 0 until h step (h / 10).coerceAtLeast(1)) {
                 if (x < w && y < h) {
                     val color = bitmap.getPixel(x, y)
-                    val r = Color.red(color)
-                    val g = Color.green(color)
-                    val b = Color.blue(color)
-                    val luminance = 0.299f * r + 0.587f * g + 0.114f * b
-                    if (luminance in 35f..225f) {
-                        redBucket += r
-                        greenBucket += g
-                        blueBucket += b
-                        sampleCount++
+                    val hsv = FloatArray(3)
+                    Color.colorToHSV(color, hsv)
+                    
+                    val saturation = hsv[1]
+                    val value = hsv[2]
+                    
+                    // Filtrar tonos apagados, oscuros o muy brillantes
+                    if (value in 0.3f..0.95f && saturation > 0.25f) {
+                        val vibrancy = saturation * value
+                        if (vibrancy > maxVibrancy) {
+                            maxVibrancy = vibrancy
+                            bestColor = color
+                        }
                     }
                 }
             }
         }
-        return if (sampleCount > 0) {
-            Color.rgb(redBucket / sampleCount, greenBucket / sampleCount, blueBucket / sampleCount)
-        } else {
-            0xFF3B82F6.toInt()
-        }
-    }
-
-    private fun getVibrantDominantColor(bitmap: android.graphics.Bitmap?): Int {
-        bitmap ?: return 0xFF3B82F6.toInt()
-        val color = getDominantColor(bitmap)
+        
+        // Ajustar saturación y brillo para que brille de forma premium sobre fondo negro
         val hsv = FloatArray(3)
-        Color.colorToHSV(color, hsv)
-        hsv[1] = hsv[1].coerceAtLeast(0.8f) // Forzar alta saturación
-        hsv[2] = 0.95f // Forzar buen brillo
+        Color.colorToHSV(bestColor, hsv)
+        hsv[1] = hsv[1].coerceAtLeast(0.85f)
+        hsv[2] = 0.95f
         return Color.HSVToColor(hsv)
     }
 
