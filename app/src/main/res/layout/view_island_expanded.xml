@@ -20,11 +20,12 @@
         android:orientation="vertical" android:layout_gravity="center_vertical">
 
         <!-- Fila Superior: Info Principal y Mini Visualizador (opcional) -->
-        <RelativeLayout
-            android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical">
             <LinearLayout
-                android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:orientation="vertical" android:layout_toStartOf="@+id/iv_expanded_visualizer">
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical">
                 <TextView android:id="@+id/tv_expanded_title"
                     android:layout_width="match_parent" android:layout_height="wrap_content"
                     android:textColor="#FFFFFF" android:textSize="15sp"
@@ -42,9 +43,9 @@
             <com.example.dynamicisland.ui.WaveformVisualizerView
                 android:id="@+id/iv_expanded_visualizer"
                 android:layout_width="14dp" android:layout_height="10dp"
-                android:layout_alignParentEnd="true" android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
                 android:visibility="gone"/>
-        </RelativeLayout>
+        </LinearLayout>
 
         <!-- Barra de Progreso de Musica (delgada, estilo iOS) -->
         <ProgressBar android:id="@+id/pb_music_progress"
