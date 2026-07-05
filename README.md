@@ -56,7 +56,7 @@ Ejecuta el siguiente comando para generar el APK de lanzamiento:
 
 ## ☕ Donativos
 
-Si te gusta este proyecto y quieres apoyar su desarrollo independiente, puedes invitarme a un café:
+Si te gusta este proyecto y quieres apoyar su desarrollo independiente, puedes invitarme a un café. **Todo el apoyo recibido será destinado a financiar el registro de la cuenta de desarrollador en Google Play Store ($25 USD) para poder publicar la aplicación de forma oficial y gratuita en la tienda.**
 
 - **Ko-fi**: [ko-fi.com/notdevp](https://ko-fi.com/notdevp)
 - **PayPal**: [paypal.me/FelipeGomex](https://paypal.me/FelipeGomex)
