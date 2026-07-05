@@ -14,6 +14,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.BIND_ACCESSIBILITY_SERVICE" tools:ignore="ProtectedPermissions"/>
+    <uses-permission android:name="android.permission.ANSWER_PHONE_CALLS" />
 
     <application
         android:allowBackup="true"

@@ -96,6 +96,8 @@ class IslandOverlayView @JvmOverloads constructor(
     var onSkipPrev: (() -> Unit)? = null
     /** Callback para pista siguiente */
     var onSkipNext: (() -> Unit)? = null
+    var onAnswerCall: (() -> Unit)? = null
+    var onDeclineCall: (() -> Unit)? = null
 
     // ── Fondo con GradientDrawable (fiable con hardware acceleration) ────────
     private val bgDrawable = GradientDrawable().apply {
@@ -167,6 +169,8 @@ class IslandOverlayView @JvmOverloads constructor(
         onPlayPause = null
         onSkipPrev = null
         onSkipNext = null
+        onAnswerCall = null
+        onDeclineCall = null
     }
 
     override fun onDetachedFromWindow() {
@@ -219,8 +223,8 @@ class IslandOverlayView @JvmOverloads constructor(
         ivCallIcon1.setColorFilter(0xFFFF3B30.toInt())
         ivCallIcon2.setImageResource(R.drawable.ic_call_answer)
         ivCallIcon2.setColorFilter(0xFF4CD964.toInt())
-        btnCallAction1.setOnClickListener { dismissIsland() }
-        btnCallAction2.setOnClickListener { dismissIsland() }
+        btnCallAction1.setOnClickListener { onDeclineCall?.invoke(); dismissIsland() }
+        btnCallAction2.setOnClickListener { onAnswerCall?.invoke(); dismissIsland() }
 
         if (!miniMode) expandWithAutoCollapse(15_000L)
     }
@@ -252,7 +256,7 @@ class IslandOverlayView @JvmOverloads constructor(
         ivCallIcon2.setImageResource(R.drawable.ic_call_end)
         ivCallIcon2.setColorFilter(0xFFFF3B30.toInt())
         btnCallAction1.setOnClickListener { }
-        btnCallAction2.setOnClickListener { dismissIsland() }
+        btnCallAction2.setOnClickListener { onDeclineCall?.invoke(); dismissIsland() }
 
         if (!isExpanded && !miniMode) expandIsland()
     }

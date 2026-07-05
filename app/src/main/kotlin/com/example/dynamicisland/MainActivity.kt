@@ -134,6 +134,12 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "❌ Overlay no concedido", Toast.LENGTH_LONG).show()
             return
         }
+        
+        // Solicitar permiso de llamadas si falta
+        if (androidx.core.content.ContextCompat.checkSelfPermission(this, android.Manifest.permission.ANSWER_PHONE_CALLS) != android.content.pm.PackageManager.PERMISSION_GRANTED) {
+            androidx.core.app.ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.ANSWER_PHONE_CALLS), 2001)
+        }
+
         try {
             startForegroundService(Intent(this, DynamicIslandService::class.java).apply {
                 action = DynamicIslandService.ACTION_START

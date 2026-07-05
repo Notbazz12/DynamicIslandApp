@@ -200,7 +200,23 @@ class DynamicIslandService : Service() {
             view.onPlayPause = { dispatchPlayPause() }
             view.onSkipPrev  = { dispatchPrev() }
             view.onSkipNext  = { dispatchNext() }
+            view.onAnswerCall = { answerIncomingCall() }
+            view.onDeclineCall = { declineIncomingCall() }
             runCatching { windowManager.addView(view, buildLayoutParams()) }
+        }
+    }
+
+    private fun answerIncomingCall() {
+        val tm = getSystemService(Context.TELECOM_SERVICE) as android.telecom.TelecomManager
+        if (androidx.core.content.ContextCompat.checkSelfPermission(this, android.Manifest.permission.ANSWER_PHONE_CALLS) == android.content.pm.PackageManager.PERMISSION_GRANTED) {
+            runCatching { tm.acceptRingingCall() }
+        }
+    }
+
+    private fun declineIncomingCall() {
+        val tm = getSystemService(Context.TELECOM_SERVICE) as android.telecom.TelecomManager
+        if (androidx.core.content.ContextCompat.checkSelfPermission(this, android.Manifest.permission.ANSWER_PHONE_CALLS) == android.content.pm.PackageManager.PERMISSION_GRANTED) {
+            runCatching { tm.endCall() }
         }
     }
 
