@@ -59,7 +59,7 @@ Ejecuta el siguiente comando para generar el APK de lanzamiento:
 Si te gusta este proyecto y quieres apoyar su desarrollo independiente, puedes invitarme a un café:
 
 - **Ko-fi**: [ko-fi.com/notdevp](https://ko-fi.com/notdevp)
-- **PayPal**: [paypal.me/tu-usuario](https://paypal.me)
+- **PayPal**: [paypal.me/FelipeGomex](https://paypal.me/FelipeGomex)
 
 ---
 *Desarrollado de forma independiente con fines de personalización y diseño estético.*
